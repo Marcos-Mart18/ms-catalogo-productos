@@ -1,0 +1,14 @@
+server:
+  port: 8181
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mi_basededatos
+    username: postgres
+    password: 123456
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect

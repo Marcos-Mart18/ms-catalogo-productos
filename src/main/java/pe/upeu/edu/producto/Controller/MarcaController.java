@@ -64,7 +64,7 @@ public class MarcaController {
     @PutMapping("/{id}")
     public ResponseEntity<Marca> updateMarca(@PathVariable("id") Long id, @RequestBody Marca mar){
         Optional<Marca>m=marcaService.read(id);
-        if(m.isEmpty()){
+        if(m.isPresent()){
             return new ResponseEntity<>(marcaService.update(mar), HttpStatus.OK);
         }else{
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

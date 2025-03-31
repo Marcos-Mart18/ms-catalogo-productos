@@ -63,7 +63,7 @@ public class CategoriaController  {
     @PutMapping("/{id}")
     public ResponseEntity<Categoria> updateCategoria(@PathVariable("id") Long id, @RequestBody Categoria cat) {
         Optional<Categoria> c=categoriaService.read(id);
-        if (c.isEmpty()) {
+        if (c.isPresent()) {
             return new ResponseEntity<>(categoriaService.update(cat),HttpStatus.OK);
         }else {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

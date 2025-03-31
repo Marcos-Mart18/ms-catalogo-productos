@@ -64,7 +64,7 @@ public class ProductoController {
     @PutMapping("/{id}")
     public ResponseEntity<Producto> modificarProducto(@PathVariable("id") Long id, @RequestBody Producto pro){
         Optional<Producto> p=productoService.read(id);
-        if (p.isEmpty()) {
+        if (p.isPresent()) {
             return new ResponseEntity<>(productoService.update(pro),HttpStatus.OK);
         }else{
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
